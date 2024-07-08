@@ -1,0 +1,109 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+type: metrics_view
+title: Metrics for FIVETRAN_PLATFORM__AUDIT_USER_ACTIVITY table
+table: FIVETRAN_PLATFORM__AUDIT_USER_ACTIVITY
+timeseries: DATE_DAY
+dimensions:
+  - label: Day Name
+    column: DAY_NAME
+    description: ""
+  - label: Destination Name
+    column: DESTINATION_NAME
+    description: ""
+  - label: Destination Id
+    column: DESTINATION_ID
+    description: ""
+  - label: Connector Name
+    column: CONNECTOR_NAME
+    description: ""
+  - label: Connector Id
+    column: CONNECTOR_ID
+    description: ""
+  - label: Email
+    column: EMAIL
+    description: ""
+  - label: First Name
+    column: FIRST_NAME
+    description: ""
+  - label: Last Name
+    column: LAST_NAME
+    description: ""
+  - label: User Id
+    column: USER_ID
+    description: ""
+  - label: Event Type
+    column: EVENT_TYPE
+    description: ""
+  - label: Event Subtype
+    column: EVENT_SUBTYPE
+    description: ""
+  - label: Message Data
+    column: MESSAGE_DATA
+    description: ""
+  - label: Log Id
+    column: LOG_ID
+    description: ""
+measures:
+  - name: total_events
+    label: Total Events
+    expression: COUNT(*)
+    description: Total number of events recorded
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: unique_users
+    label: Unique Users
+    expression: COUNT(DISTINCT USER_ID)
+    description: Number of unique users
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: events_per_day
+    label: Events per Day
+    expression: COUNT(*) / COUNT(DISTINCT DATE_DAY)
+    description: Average events per day
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: events_per_user
+    label: Events per User
+    expression: COUNT(*) / COUNT(DISTINCT USER_ID)
+    description: Average events per user
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_users
+    label: Total Users
+    expression: COUNT(DISTINCT USER_ID)
+    description: Total number of users
+    format_preset: humanize
+    valid_percent_of_total: false
+available_time_zones:
+  - America/Los_Angeles
+  - America/Chicago
+  - America/New_York
+  - Europe/London
+  - Europe/Paris
+  - Asia/Jerusalem
+  - Europe/Moscow
+  - Asia/Kolkata
+  - Asia/Shanghai
+  - Asia/Tokyo
+  - Australia/Sydney
+available_time_ranges:
+  - PT6H
+  - PT24H
+  - P7D
+  - P14D
+  - P4W
+  - P3M
+  - P12M
+  - rill-TD
+  - rill-WTD
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PDC
+  - rill-PWC
+  - rill-PMC
+  - rill-PQC
+  - rill-PYC

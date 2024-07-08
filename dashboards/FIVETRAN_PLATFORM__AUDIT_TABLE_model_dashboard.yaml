@@ -1,0 +1,115 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+type: metrics_view
+title: Metrics for FIVETRAN_PLATFORM__AUDIT_TABLE_model
+model: FIVETRAN_PLATFORM__AUDIT_TABLE_model
+timeseries: WRITE_TO_TABLE_START
+dimensions:
+  - label: Connector Id
+    column: CONNECTOR_ID
+    description: ""
+  - label: Connector Name
+    column: CONNECTOR_NAME
+    description: ""
+  - label: Schema Name
+    column: SCHEMA_NAME
+    description: ""
+  - label: Table Name
+    column: TABLE_NAME
+    description: ""
+  - label: Destination Id
+    column: DESTINATION_ID
+    description: ""
+  - label: Destination Name
+    column: DESTINATION_NAME
+    description: ""
+  - label: Unique Table Sync Key
+    column: UNIQUE_TABLE_SYNC_KEY
+    description: ""
+measures:
+  - name: average_rows_replaced_or_inserted
+    label: Average Rows Replaced or Inserted
+    expression: AVG(SUM_ROWS_REPLACED_OR_INSERTED)
+    description: Average number of rows replaced or inserted per entry
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_rows_updated
+    label: Total Rows Updated
+    expression: SUM(SUM_ROWS_UPDATED)
+    description: Total number of rows updated across all entries
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: min_rows_deleted
+    label: Minimum Rows Deleted
+    expression: MIN(SUM_ROWS_DELETED)
+    description: Minimum number of rows deleted in a single entry
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: max_rows_replaced_or_inserted
+    label: Maximum Rows Replaced or Inserted
+    expression: MAX(SUM_ROWS_REPLACED_OR_INSERTED)
+    description: Maximum number of rows replaced or inserted in a single entry
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_entries
+    label: Total Entries
+    expression: COUNT(*)
+    description: Total number of entries in the table
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_rows_updated
+    label: Average Rows Updated
+    expression: AVG(SUM_ROWS_UPDATED)
+    description: Average number of rows updated per entry
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: max_sync_duration
+    label: Maximum Sync Duration
+    expression: MAX(SYNC_END - SYNC_START)
+    description: Maximum duration of sync process in a single entry
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_rows_deleted
+    label: Total Rows Deleted
+    expression: SUM(SUM_ROWS_DELETED)
+    description: Total number of rows deleted across all entries
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: min_sync_duration
+    label: Minimum Sync Duration
+    expression: MIN(SYNC_END - SYNC_START)
+    description: Minimum duration of sync process in a single entry
+    format_preset: humanize
+    valid_percent_of_total: false
+available_time_zones:
+  - America/Los_Angeles
+  - America/Chicago
+  - America/New_York
+  - Europe/London
+  - Europe/Paris
+  - Asia/Jerusalem
+  - Europe/Moscow
+  - Asia/Kolkata
+  - Asia/Shanghai
+  - Asia/Tokyo
+  - Australia/Sydney
+available_time_ranges:
+  - PT6H
+  - PT24H
+  - P7D
+  - P14D
+  - P4W
+  - P3M
+  - P12M
+  - rill-TD
+  - rill-WTD
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PDC
+  - rill-PWC
+  - rill-PMC
+  - rill-PQC
+  - rill-PYC

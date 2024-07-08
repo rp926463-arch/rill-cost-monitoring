@@ -1,0 +1,121 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+type: metrics_view
+title: Metrics for FIVETRAN_PLATFORM__MAR_TABLE_HISTORY table
+table: FIVETRAN_PLATFORM__MAR_TABLE_HISTORY
+timeseries: MEASURED_MONTH
+dimensions:
+  - label: Connector Name
+    column: CONNECTOR_NAME
+    description: ""
+  - label: Schema Name
+    column: SCHEMA_NAME
+    description: ""
+  - label: Table Name
+    column: TABLE_NAME
+    description: ""
+  - label: Destination Id
+    column: DESTINATION_ID
+    description: ""
+  - label: Connector Type
+    column: CONNECTOR_TYPE
+    description: ""
+  - label: Connector Id
+    column: CONNECTOR_ID
+    description: ""
+  - label: Destination Name
+    column: DESTINATION_NAME
+    description: ""
+measures:
+  - name: average_free_monthly_active_rows
+    label: Average Free Monthly Active Rows
+    expression: AVG(FREE_MONTHLY_ACTIVE_ROWS)
+    description: Average number of free monthly active rows
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_paid_monthly_active_rows
+    label: Average Paid Monthly Active Rows
+    expression: AVG(PAID_MONTHLY_ACTIVE_ROWS)
+    description: Average number of paid monthly active rows
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_monthly_active_rows
+    label: Total Monthly Active Rows
+    expression: SUM(TOTAL_MONTHLY_ACTIVE_ROWS)
+    description: Total number of monthly active rows
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: min_free_monthly_active_rows
+    label: Minimum Free Monthly Active Rows
+    expression: MIN(FREE_MONTHLY_ACTIVE_ROWS)
+    description: Minimum number of free monthly active rows
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: max_paid_monthly_active_rows
+    label: Maximum Paid Monthly Active Rows
+    expression: MAX(PAID_MONTHLY_ACTIVE_ROWS)
+    description: Maximum number of paid monthly active rows
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_tables_measured
+    label: Total Tables Measured
+    expression: COUNT(TABLE_NAME)
+    description: Total number of tables measured
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_monthly_active_rows
+    label: Average Monthly Active Rows
+    expression: AVG(TOTAL_MONTHLY_ACTIVE_ROWS)
+    description: Average number of total monthly active rows
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_free_monthly_active_rows
+    label: Total Free Monthly Active Rows
+    expression: SUM(FREE_MONTHLY_ACTIVE_ROWS)
+    description: Total number of free monthly active rows
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: total_paid_monthly_active_rows
+    label: Total Paid Monthly Active Rows
+    expression: SUM(PAID_MONTHLY_ACTIVE_ROWS)
+    description: Total number of paid monthly active rows
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: average_total_monthly_active_rows
+    label: Average Total Monthly Active Rows
+    expression: AVG(TOTAL_MONTHLY_ACTIVE_ROWS)
+    description: Average number of total monthly active rows
+    format_preset: humanize
+    valid_percent_of_total: false
+available_time_zones:
+  - America/Los_Angeles
+  - America/Chicago
+  - America/New_York
+  - Europe/London
+  - Europe/Paris
+  - Asia/Jerusalem
+  - Europe/Moscow
+  - Asia/Kolkata
+  - Asia/Shanghai
+  - Asia/Tokyo
+  - Australia/Sydney
+available_time_ranges:
+  - PT6H
+  - PT24H
+  - P7D
+  - P14D
+  - P4W
+  - P3M
+  - P12M
+  - rill-TD
+  - rill-WTD
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PDC
+  - rill-PWC
+  - rill-PMC
+  - rill-PQC
+  - rill-PYC

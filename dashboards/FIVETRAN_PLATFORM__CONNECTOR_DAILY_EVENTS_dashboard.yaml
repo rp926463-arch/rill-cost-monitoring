@@ -1,0 +1,115 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+type: metrics_view
+title: Metrics for FIVETRAN_PLATFORM__CONNECTOR_DAILY_EVENTS table
+table: FIVETRAN_PLATFORM__CONNECTOR_DAILY_EVENTS
+timeseries: DATE_DAY
+dimensions:
+  - label: Connector Name
+    column: CONNECTOR_NAME
+    description: ""
+  - label: Connector Id
+    column: CONNECTOR_ID
+    description: ""
+  - label: Connector Type
+    column: CONNECTOR_TYPE
+    description: ""
+  - label: Destination Name
+    column: DESTINATION_NAME
+    description: ""
+  - label: Destination Id
+    column: DESTINATION_ID
+    description: ""
+measures:
+  - name: average_api_calls
+    label: Average API Calls
+    expression: AVG(COUNT_API_CALLS)
+    description: Average number of API calls made per day
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_record_modifications
+    label: Total Record Modifications
+    expression: SUM(COUNT_RECORD_MODIFICATIONS)
+    description: Total number of record modifications
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: max_schema_changes
+    label: Max Schema Changes
+    expression: MAX(COUNT_SCHEMA_CHANGES)
+    description: Maximum number of schema changes in a day
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_record_modifications
+    label: Average Record Modifications
+    expression: AVG(COUNT_RECORD_MODIFICATIONS)
+    description: Average number of record modifications per day
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_api_calls
+    label: Total API Calls
+    expression: SUM(COUNT_API_CALLS)
+    description: Total number of API calls made
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: min_schema_changes
+    label: Min Schema Changes
+    expression: MIN(COUNT_SCHEMA_CHANGES)
+    description: Minimum number of schema changes in a day
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_schema_changes
+    label: Average Schema Changes
+    expression: AVG(COUNT_SCHEMA_CHANGES)
+    description: Average number of schema changes per day
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: max_record_modifications
+    label: Max Record Modifications
+    expression: MAX(COUNT_RECORD_MODIFICATIONS)
+    description: Maximum number of record modifications in a day
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_schema_changes
+    label: Total Schema Changes
+    expression: SUM(COUNT_SCHEMA_CHANGES)
+    description: Total number of schema changes
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: min_api_calls
+    label: Min API Calls
+    expression: MIN(COUNT_API_CALLS)
+    description: Minimum number of API calls made in a day
+    format_preset: humanize
+    valid_percent_of_total: false
+available_time_zones:
+  - America/Los_Angeles
+  - America/Chicago
+  - America/New_York
+  - Europe/London
+  - Europe/Paris
+  - Asia/Jerusalem
+  - Europe/Moscow
+  - Asia/Kolkata
+  - Asia/Shanghai
+  - Asia/Tokyo
+  - Australia/Sydney
+available_time_ranges:
+  - PT6H
+  - PT24H
+  - P7D
+  - P14D
+  - P4W
+  - P3M
+  - P12M
+  - rill-TD
+  - rill-WTD
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PDC
+  - rill-PWC
+  - rill-PMC
+  - rill-PQC
+  - rill-PYC

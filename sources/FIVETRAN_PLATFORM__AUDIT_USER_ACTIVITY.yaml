@@ -1,0 +1,8 @@
+# Source YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/sources
+  
+type: source
+
+connector: "snowflake"
+dsn: "rp926463:Xmb#529Geq@yafguxq-ae88061/PIPELINE_LOGS/FIVETRAN_LOGS_FIVETRAN_PLATFORM?warehouse=compute_wh&role=accountadmin&role=accountadmin"
+sql: "select * from FIVETRAN_PLATFORM__AUDIT_USER_ACTIVITY"

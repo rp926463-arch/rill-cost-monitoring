@@ -1,0 +1,106 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+type: metrics_view
+title: Metrics for FIVETRAN_PLATFORM__SCHEMA_CHANGELOG table
+table: FIVETRAN_PLATFORM__SCHEMA_CHANGELOG
+timeseries: CREATED_AT
+dimensions:
+  - label: Connector Id
+    column: CONNECTOR_ID
+    description: ""
+  - label: Connector Name
+    column: CONNECTOR_NAME
+    description: ""
+  - label: Destination Id
+    column: DESTINATION_ID
+    description: ""
+  - label: Destination Name
+    column: DESTINATION_NAME
+    description: ""
+  - label: Event Subtype
+    column: EVENT_SUBTYPE
+    description: ""
+  - label: Message Data
+    column: MESSAGE_DATA
+    description: ""
+  - label: Table Name
+    column: TABLE_NAME
+    description: ""
+  - label: Schema Name
+    column: SCHEMA_NAME
+    description: ""
+measures:
+  - name: average_message_data_length
+    label: Average Message Data Length
+    expression: AVG(LENGTH(MESSAGE_DATA))
+    description: Average length of the message data field
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_events
+    label: Total Events
+    expression: COUNT(*)
+    description: Total number of events in the table
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: unique_connectors
+    label: Unique Connectors
+    expression: COUNT(DISTINCT CONNECTOR_ID)
+    description: Number of unique connectors in the table
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: max_message_data_length
+    label: Max Message Data Length
+    expression: MAX(LENGTH(MESSAGE_DATA))
+    description: Maximum length of the message data field
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: min_created_at
+    label: Min Created At
+    expression: MIN(CREATED_AT)
+    description: Earliest created at timestamp in the table
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_schema_changes
+    label: Total Schema Changes
+    expression: COUNT(DISTINCT TABLE_NAME)
+    description: Total number of unique schema changes
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_destination_changes
+    label: Total Destination Changes
+    expression: COUNT(DISTINCT DESTINATION_ID)
+    description: Total number of unique destination changes
+    format_preset: humanize
+    valid_percent_of_total: false
+available_time_zones:
+  - America/Los_Angeles
+  - America/Chicago
+  - America/New_York
+  - Europe/London
+  - Europe/Paris
+  - Asia/Jerusalem
+  - Europe/Moscow
+  - Asia/Kolkata
+  - Asia/Shanghai
+  - Asia/Tokyo
+  - Australia/Sydney
+available_time_ranges:
+  - PT6H
+  - PT24H
+  - P7D
+  - P14D
+  - P4W
+  - P3M
+  - P12M
+  - rill-TD
+  - rill-WTD
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PDC
+  - rill-PWC
+  - rill-PMC
+  - rill-PQC
+  - rill-PYC

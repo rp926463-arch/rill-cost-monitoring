@@ -1,0 +1,112 @@
+# Dashboard YAML
+# Reference documentation: https://docs.rilldata.com/reference/project-files/dashboards
+# This file was generated using AI.
+
+type: metrics_view
+title: Metrics for FIVETRAN_PLATFORM__CONNECTOR_STATUS table
+table: FIVETRAN_PLATFORM__CONNECTOR_STATUS
+timeseries: LAST_SUCCESSFUL_SYNC_COMPLETED_AT
+dimensions:
+  - label: Connector Id
+    column: CONNECTOR_ID
+    description: ""
+  - label: Connector Name
+    column: CONNECTOR_NAME
+    description: ""
+  - label: Connector Type
+    column: CONNECTOR_TYPE
+    description: ""
+  - label: Destination Id
+    column: DESTINATION_ID
+    description: ""
+  - label: Destination Name
+    column: DESTINATION_NAME
+    description: ""
+  - label: Connector Health
+    column: CONNECTOR_HEALTH
+    description: ""
+measures:
+  - name: average_number_of_schema_changes_last_month
+    label: Average Number of Schema Changes Last Month
+    expression: AVG(NUMBER_OF_SCHEMA_CHANGES_LAST_MONTH)
+    description: Average number of schema changes that occurred last month across all connectors.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_errors_since_last_completed_sync
+    label: Total Errors Since Last Completed Sync
+    expression: SUM(NUMBER_ERRORS_SINCE_LAST_COMPLETED_SYNC)
+    description: Total number of errors that occurred since the last completed sync across all connectors.
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: max_warnings_since_last_completed_sync
+    label: Max Warnings Since Last Completed Sync
+    expression: MAX(NUMBER_WARNINGS_SINCE_LAST_COMPLETED_SYNC)
+    description: Maximum number of warnings that occurred since the last completed sync across all connectors.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_connectors
+    label: Total Connectors
+    expression: COUNT(CONNECTOR_ID)
+    description: Total number of connectors in the table.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_successful_syncs
+    label: Total Successful Syncs
+    expression: COUNT(LAST_SUCCESSFUL_SYNC_COMPLETED_AT)
+    description: Total number of successful syncs across all connectors.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: min_days_since_set_up
+    label: Min Days Since Set Up
+    expression: MIN(DATEDIFF('day', SET_UP_AT, CURRENT_TIMESTAMP))
+    description: Minimum number of days since the connectors were set up.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: average_errors_per_connector
+    label: Average Errors per Connector
+    expression: AVG(NUMBER_ERRORS_SINCE_LAST_COMPLETED_SYNC)
+    description: Average number of errors per connector since the last completed sync.
+    format_preset: humanize
+    valid_percent_of_total: false
+  - name: total_warnings
+    label: Total Warnings
+    expression: SUM(NUMBER_WARNINGS_SINCE_LAST_COMPLETED_SYNC)
+    description: Total number of warnings since the last completed sync across all connectors.
+    format_preset: humanize
+    valid_percent_of_total: true
+  - name: average_errors_warnings_ratio
+    label: Average Errors/Warnings Ratio
+    expression: AVG(NUMBER_ERRORS_SINCE_LAST_COMPLETED_SYNC / NULLIF(NUMBER_WARNINGS_SINCE_LAST_COMPLETED_SYNC, 0))
+    description: Average ratio of errors to warnings since the last completed sync across all connectors.
+    format_preset: humanize
+    valid_percent_of_total: false
+available_time_zones:
+  - America/Los_Angeles
+  - America/Chicago
+  - America/New_York
+  - Europe/London
+  - Europe/Paris
+  - Asia/Jerusalem
+  - Europe/Moscow
+  - Asia/Kolkata
+  - Asia/Shanghai
+  - Asia/Tokyo
+  - Australia/Sydney
+available_time_ranges:
+  - PT6H
+  - PT24H
+  - P7D
+  - P14D
+  - P4W
+  - P3M
+  - P12M
+  - rill-TD
+  - rill-WTD
+  - rill-MTD
+  - rill-QTD
+  - rill-YTD
+  - rill-PDC
+  - rill-PWC
+  - rill-PMC
+  - rill-PQC
+  - rill-PYC
